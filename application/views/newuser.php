@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
     <link href="navbar.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
 
 </head>
 <body>
@@ -26,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/">Home</a></li>
               <!-- <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li> -->
               <!-- <li class="dropdown">
@@ -51,14 +52,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!--/.container-fluid -->
       </nav>
 
+<div class="container">
 
-<div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
-      </div>
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
 
     </div>
 

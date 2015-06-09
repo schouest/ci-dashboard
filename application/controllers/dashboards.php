@@ -9,6 +9,7 @@ class dashboards extends CI_Controller {
 	}
 	public function index()
 	{
+		//redirect("/");
 		$this->load->view('index');
 	}
 
