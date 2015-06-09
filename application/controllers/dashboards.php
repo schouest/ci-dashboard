@@ -34,21 +34,9 @@ class dashboards extends CI_Controller {
 	public function maindash()//TODO: check if admin and redirect to admindash
 	{
 		$this->load->model('dashboard');
-
-
 		$users=$this->dashboard->get_all_users();
 		$this->load->view('maindash', array('users' => $users));
-
 	}
-/*
-public function showuser()
-	{
-		$id = 4; //temp debug setting
-		$this->load->model('dashboard');
-		$user=$this->dashboard->get_user($id);
-		$this->load->view('showuser', array('user_info' => $user));
-	}*/
-
 
 	public function newuser()
 	{
@@ -74,7 +62,8 @@ public function showuser()
 
 			if($newuser){
 				$this->session->set_userdata('loggedin',$newuser['user_id']);
-				$this->session->set_userdata('loggedname',$user['name']);
+				$tempvar = $user['first_name'] . " " . $user['last_name'];
+				$this->session->set_userdata('loggedname',$tempvar);
 				redirect('maindash');	
 			}				
 		}
@@ -101,6 +90,12 @@ public function showuser()
 		}	
 	}
 
+	public function signout(){
+		$this->session->unset_userdata('loggedname');
+		$this->session->unset_userdata('loggedin');
+		redirect('/');
+	}
+
 	public function validate_login(){
 
 		$this->load->model('dashboard');
@@ -118,7 +113,8 @@ public function showuser()
 			if($encrypt_pass == $user['password'])
 			{
 				$this->session->set_userdata('loggedin',$user['user_id']);
-				$this->session->set_userdata('loggedname',$user['name']);
+				$tempvar = $user['first_name'] . " " . $user['last_name'];
+				$this->session->set_userdata('loggedname',$tempvar);
 				redirect('maindash');
 			}
 			$this->session->set_flashdata('errors', 'Invalid Login Credentials');
