@@ -31,10 +31,24 @@ class dashboards extends CI_Controller {
 		$this->load->view('edituser');
 	}
 
-	public function maindash()
+	public function maindash()//TODO: check if admin and redirect to admindash
 	{
-		$this->load->view('maindash');//TODO: check if admin and redirect to admindash
+		$this->load->model('dashboard');
+
+
+		$users=$this->dashboard->get_all_users();
+		$this->load->view('maindash', array('users' => $users));
+
 	}
+/*
+public function showuser()
+	{
+		$id = 4; //temp debug setting
+		$this->load->model('dashboard');
+		$user=$this->dashboard->get_user($id);
+		$this->load->view('showuser', array('user_info' => $user));
+	}*/
+
 
 	public function newuser()
 	{
@@ -60,6 +74,7 @@ class dashboards extends CI_Controller {
 
 			if($newuser){
 				$this->session->set_userdata('loggedin',$newuser['user_id']);
+				$this->session->set_userdata('loggedname',$user['name']);
 				redirect('maindash');	
 			}				
 		}
@@ -103,6 +118,7 @@ class dashboards extends CI_Controller {
 			if($encrypt_pass == $user['password'])
 			{
 				$this->session->set_userdata('loggedin',$user['user_id']);
+				$this->session->set_userdata('loggedname',$user['name']);
 				redirect('maindash');
 			}
 			$this->session->set_flashdata('errors', 'Invalid Login Credentials');

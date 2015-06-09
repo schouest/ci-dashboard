@@ -2,7 +2,7 @@
 class dashboard extends CI_Model {
     
 function get_all_users(){
-         return $this->db->query("SELECT * FROM users ORDER BY date_added DESC")->result_array();
+         return $this->db->query("SELECT * FROM users")->result_array();
 }
  
 function get_user($id){
@@ -38,7 +38,6 @@ $this->load->library('form_validation');
 }
 
 function validate_reg($post){
-//TODO: Validate reg method and insert into controller
 $this->load->library('form_validation');
         $this->form_validation->set_rules('f_name', "First Name", 'required|trim|alpha');
         $this->form_validation->set_rules('l_name', "Last Name", 'required|trim|alpha');

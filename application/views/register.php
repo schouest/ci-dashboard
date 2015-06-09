@@ -11,7 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Custom styles for this template -->
     <link href="navbar.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
-
+<style>
+.container p{
+  color:red;
+}
+</style>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -67,7 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input name="passcode" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <label for="cfrmPassword" class="sr-only">Confirm Password</label>
         <input name='cpasscode' type="password" id="cfrmPassword" class="form-control" placeholder="Confirm Password" required>
-        <?php echo $this->session->flashdata('errors'); ?><br>
+        
+        <p><?= $this->session->flashdata('errors'); ?></p>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me

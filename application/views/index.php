@@ -55,8 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <h1>Best Dashboard Ever</h1>
+        <p>This example is text meant to illustrate how the formatting will look. This site is built on codeigniter framework with twitter bootstrap.</p>
         <p>
           <a class="btn btn-lg btn-primary" href="login" role="button">Enter Here &raquo;</a>
           <br><a href="register">Register</a>
