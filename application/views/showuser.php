@@ -51,14 +51,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!--/.container-fluid -->
       </nav>
 
+<?php var_dump($user_info)?>
 
-<div class="jumbotron">
+<!-- <div class="jumbotron">
         <h1>Navbar example</h1>
         <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
         <p>
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p>
-      </div>
+      </div> -->
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

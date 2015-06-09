@@ -2,13 +2,16 @@
 class dashboard extends CI_Model {
     
 function get_all_users(){
-
+         return $this->db->query("SELECT * FROM users ORDER BY date_added DESC")->result_array();
 }
-
+ 
 function get_user($id){
-
+	return $this->db->query("SELECT * FROM users WHERE user_id = ?", array($id))->row_array();
 }
 
+function get_user_bymail($mail){
+	return $this->db->query("SELECT * FROM users WHERE email = ?", array($mail))->row_array();
+}
 
 function add_user($user_info){
 if(isset($user_info['passcode'])){
@@ -21,8 +24,34 @@ $query = "INSERT INTO users (email, password, first_name, last_name, user_level,
          return $this->db->query($query, $values);
 }
 
-function validate_login(){//TODO: START HERE FOR LOGIN MODEL. don't forget to check password against it's salted equivalent
+function validate_login($post){
+$this->load->library('form_validation');
+        $this->form_validation->set_rules('mail', "Email", 'required|valid_email');
+        $this->form_validation->set_rules('passcode', 'Password', 'required|trim');
 
+        if($this->form_validation->run() === FALSE){
+            return FALSE;
+        }
+        else{
+                    return TRUE;
+        }
+}
+
+function validate_reg($post){
+//TODO: Validate reg method and insert into controller
+$this->load->library('form_validation');
+        $this->form_validation->set_rules('first_name', "First Name", 'required|trim|alpha');
+        $this->form_validation->set_rules('last_name', "Last Name", 'required|trim|alpha');
+        $this->form_validation->set_rules('email', "Email", 'required|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|matches[confirm_password]|min_length[5]|md5');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password','trim|md5');
+
+        if($this->form_validation->run() === FALSE){
+            return FALSE;
+        }
+        else{
+                    return TRUE;
+        }    	
 }
 
 function delete_user(){

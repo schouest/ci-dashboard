@@ -75,6 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       </form>
+      <a href="login">Already signed up? Login here</a>
 
     </div>
 

@@ -56,3 +56,4 @@ $route['login'] = 'dashboards/signin';
 $route['register'] = 'dashboards/register';
 $route['maindash'] = 'dashboards/maindash';
 $route['signup'] = 'dashboards/add_user_account';
+$route['gologin'] = 'dashboards/validate_login';

@@ -90,6 +90,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <h2 class="sub-header">Section title</h2>
           <div class="table-responsive">
             <table class="table table-striped">
+              
+<!-- <table>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>User Level</th>
+      <th>Actions</th>  
+    </tr>
+<?php $id=4; 
+foreach ($courses as $entry) {
+  ?><tr><td style="background-color:darkgrey"><?php
+      echo $entry['name'];
+      //$id = $entry['id'];
+      ?></td><td style="background-color:lightgrey"><?=
+      $entry['description'];
+      ?></td><td style="background-color:lightgrey"><?=
+      $entry['date_added'];
+      ?></td><td style="background-color:grey">
+      <a href="<?= "localhost/courses/destroy/$id" ?>">Delete</a>       
+</td></tr><?php }
+?>
+    </table> -->
               <thead>
                 <tr>
                   <th>#</th>

@@ -47,6 +47,7 @@ class dashboards extends CI_Controller {
 	}
 
 	public function add_user_account(){
+		//TODO: validate registration info
 		$this->load->model('dashboard');
 		if($user=$this->dashboard->add_user($this->input->post())){
 			//TODO: set user session id, maybe change var flag if admin?
@@ -57,10 +58,12 @@ class dashboards extends CI_Controller {
 		}
 		
 	}
-
 	public function showuser()
 	{
-		$this->load->view('showuser');
+		$id = 4; //temp debug setting
+		$this->load->model('dashboard');
+		$user=$this->dashboard->get_user($id);
+		$this->load->view('showuser', array('user_info' => $user));
 	}
 
 	public function signin()
@@ -72,5 +75,35 @@ class dashboards extends CI_Controller {
 			redirect('maindash');
 		}
 		
+	}
+
+	public function validate_login(){
+
+		$this->load->model('dashboard');
+		if($this->dashboard->validate_login($this->input->post()) === FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+		}
+		$mail = $this->input->post('mail');
+		$passcode = $this->input->post('passcode');
+		$user= $this->dashboard->get_user_bymail($mail);
+		
+		if($user)
+		{//=success
+			$salt = $user['salt'];
+			$encrypt_pass = md5($passcode . '' . $salt);//This isn't working
+			if($encrypt_pass == $user['password'])
+			{
+				echo 'USER AUTHENTICATED';
+				die();
+			}
+			echo $passcode .'-> ' . $encrypt_pass . ' is not equal to ' . $user['password'] . ' and the salt is ' . $salt;
+			die();
+			
+			$this->session->set_userdata('loggedin',1);
+		}//=failure
+			echo('query failure');
+			die();
+		
+		redirect('login');
 	}
 }
