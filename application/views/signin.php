@@ -61,6 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input name="mail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="passcode" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        
+        <?php echo $this->session->flashdata('errors'); ?><br>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me

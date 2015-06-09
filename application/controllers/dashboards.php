@@ -47,11 +47,21 @@ class dashboards extends CI_Controller {
 	}
 
 	public function add_user_account(){
-		//TODO: validate registration info
 		$this->load->model('dashboard');
+		if($this->dashboard->validate_reg($this->input->post()) === FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			redirect("register");
+		}
+
 		if($user=$this->dashboard->add_user($this->input->post())){
-			//TODO: set user session id, maybe change var flag if admin?
-			redirect('maindash');
+
+			$mail = $this->input->post('mail');
+			$newuser= $this->dashboard->get_user_bymail($mail);
+
+			if($newuser){
+				$this->session->set_userdata('loggedin',$newuser['user_id']);
+				redirect('maindash');	
+			}				
 		}
 		else{
 			redirect("/");
@@ -73,8 +83,7 @@ class dashboards extends CI_Controller {
 		}
 		else{
 			redirect('maindash');
-		}
-		
+		}	
 	}
 
 	public function validate_login(){
@@ -90,20 +99,17 @@ class dashboards extends CI_Controller {
 		if($user)
 		{//=success
 			$salt = $user['salt'];
-			$encrypt_pass = md5($passcode . '' . $salt);//This isn't working
+			$encrypt_pass = md5($passcode . '' . $salt);
 			if($encrypt_pass == $user['password'])
 			{
-				echo 'USER AUTHENTICATED';
-				die();
+				$this->session->set_userdata('loggedin',$user['user_id']);
+				redirect('maindash');
 			}
-			echo $passcode .'-> ' . $encrypt_pass . ' is not equal to ' . $user['password'] . ' and the salt is ' . $salt;
-			die();
-			
-			$this->session->set_userdata('loggedin',1);
+			$this->session->set_flashdata('errors', 'Invalid Login Credentials');
+			/*echo $passcode .'-> ' . $encrypt_pass . ' is not equal to ' . $user['password'] . ' and the salt is ' . $salt;
+			die();*/		
 		}//=failure
-			echo('query failure');
-			die();
-		
+			$this->session->set_flashdata('errors', 'Invalid Login Credentials');
 		redirect('login');
 	}
 }

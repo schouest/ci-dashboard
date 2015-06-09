@@ -66,8 +66,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="passcode" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <label for="cfrmPassword" class="sr-only">Confirm Password</label>
-        <input type="password" id="cfrmPassword" class="form-control" placeholder="Confirm Password" required>
-
+        <input name='cpasscode' type="password" id="cfrmPassword" class="form-control" placeholder="Confirm Password" required>
+        <?php echo $this->session->flashdata('errors'); ?><br>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me

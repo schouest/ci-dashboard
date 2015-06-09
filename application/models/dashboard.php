@@ -40,11 +40,11 @@ $this->load->library('form_validation');
 function validate_reg($post){
 //TODO: Validate reg method and insert into controller
 $this->load->library('form_validation');
-        $this->form_validation->set_rules('first_name', "First Name", 'required|trim|alpha');
-        $this->form_validation->set_rules('last_name', "Last Name", 'required|trim|alpha');
-        $this->form_validation->set_rules('email', "Email", 'required|valid_email|is_unique[users.email]');
-        $this->form_validation->set_rules('password', 'Password', 'required|trim|matches[confirm_password]|min_length[5]|md5');
-        $this->form_validation->set_rules('confirm_password', 'Confirm Password','trim|md5');
+        $this->form_validation->set_rules('f_name', "First Name", 'required|trim|alpha');
+        $this->form_validation->set_rules('l_name', "Last Name", 'required|trim|alpha');
+        $this->form_validation->set_rules('mail', "Email", 'required|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('passcode', 'Password', 'required|trim|matches[cpasscode]|min_length[5]');
+        $this->form_validation->set_rules('cpasscode', 'Confirm Password','trim');
 
         if($this->form_validation->run() === FALSE){
             return FALSE;
