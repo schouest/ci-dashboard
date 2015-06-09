@@ -7,10 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>User Dashboard Login</title>
-	<link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="signin.css" rel="stylesheet">
+	<link href="../../assets/css/bootstrap.min.css" rel="stylesheet"> 
 	<!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
+  <link href="signin.css" rel="stylesheet">
+  <link href="navbar.css" rel="stylesheet">
 
 </head>
 <body>
@@ -23,11 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="/">Project name</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/">Home</a></li>
               <!-- <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li> -->
               <!-- <li class="dropdown">
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Sign in <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="register">Register<span class="sr-only">(current)</span></a></li>
               <!-- <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li> -->
             </ul>
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" action=''>
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>

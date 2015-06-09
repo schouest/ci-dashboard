@@ -23,11 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="/">Project name</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/">Home</a></li>
               <!-- <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li> -->
               <!-- <li class="dropdown">
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Sign in <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="login">Sign in<span class="sr-only">(current)</span></a></li>
               <!-- <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li> -->
             </ul>
@@ -55,18 +55,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
+      <form class="form-signin" method="post" action="signup">
+        <h2 class="form-signin-heading">Please Register</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input name="mail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputfname" class="sr-only">First Name</label>
+        <input name="f_name" type="text" id="inputfname" class="form-control" placeholder="First Name" required>
+        <label for="inputlname" class="sr-only">Last Name</label>
+        <input name="l_name" type="text" id="inputlname" class="form-control" placeholder="Last Name" required>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input name="passcode" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="cfrmPassword" class="sr-only">Confirm Password</label>
+        <input type="password" id="cfrmPassword" class="form-control" placeholder="Confirm Password" required>
+
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       </form>
 
     </div>

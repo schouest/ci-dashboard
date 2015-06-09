@@ -9,6 +9,9 @@ class dashboards extends CI_Controller {
 	}
 	public function index()
 	{
+		if(null ===($this->session->userdata('loggedin'))){
+			$this->session->set_userdata('loggedin',0);
+		}
 		//redirect("/");
 		$this->load->view('index');
 	}
@@ -30,7 +33,7 @@ class dashboards extends CI_Controller {
 
 	public function maindash()
 	{
-		$this->load->view('maindash');
+		$this->load->view('maindash');//TODO: check if admin and redirect to admindash
 	}
 
 	public function newuser()
@@ -43,6 +46,18 @@ class dashboards extends CI_Controller {
 		$this->load->view('register');
 	}
 
+	public function add_user_account(){
+		$this->load->model('dashboard');
+		if($user=$this->dashboard->add_user($this->input->post())){
+			//TODO: set user session id, maybe change var flag if admin?
+			redirect('maindash');
+		}
+		else{
+			redirect("/");
+		}
+		
+	}
+
 	public function showuser()
 	{
 		$this->load->view('showuser');
@@ -50,6 +65,12 @@ class dashboards extends CI_Controller {
 
 	public function signin()
 	{
-		$this->load->view('signin');
+		if(empty($this->session->userdata('loggedin'))){
+			$this->load->view('signin');
+		}
+		else{
+			redirect('maindash');
+		}
+		
 	}
 }

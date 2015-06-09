@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href=".">Project name</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -43,9 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Sign in <span class="sr-only">(current)</span></a></li>
-              <!-- <li><a href="../navbar-static-top/">Static top</a></li>
-              <li><a href="../navbar-fixed-top/">Fixed top</a></li> -->
+              <li class="active"><a href="login">Sign in <span class="sr-only">(current)</span></a></li>
+
+                            <li><a href="register">Register</a></li>
+              <!-- <li><a href="../navbar-fixed-top/">Fixed top</a></li> -->
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -56,7 +58,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h1>Navbar example</h1>
         <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
         <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+          <a class="btn btn-lg btn-primary" href="login" role="button">Enter Here &raquo;</a>
+          <br><a href="register">Register</a>
         </p>
       </div>
 <h3>Cheat Links</h3>
