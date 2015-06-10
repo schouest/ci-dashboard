@@ -11,7 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Custom styles for this template -->
     <!-- <link href="navbar.css" rel="stylesheet"> -->
     <link href="dashboard.css" rel="stylesheet">
-
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -23,18 +22,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">Project name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              <li class="active"><a href="profile">Welcome <?= $this->session->userdata('loggedname'); ?></a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="maindash">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="wall">Your Wall</a></li>
+            <li><a href="profile">Profile</a></li>
             <li><a href="logout">Logout</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
+          <!-- <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
-          </form>
+          </form> -->
         </div>
       </div>
     </nav>
@@ -42,32 +44,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 style='margin-top: 80px' class="page-header">All Users</h1>
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
-
-          <h2 class="sub-header">Section title</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               
@@ -78,6 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Email</th>
                   <th>created_at</th>
                   <th>updated_at</th>
+                  <th>User Level</th>
                 </tr>
               </thead>
               <tbody>
@@ -87,12 +66,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $id = $entry['user_id'];
       ?></td><td><?=
       $entry['first_name'] . "&nbsp" . $entry['last_name'];
-      ?></td><td>$<?=
+      ?></td><td><?=
       $entry['email'];
-      ?></td><td>$<?=
+      ?></td><td><?=
       $entry['date_created'];
-      ?></td><td>$<?=
+      ?></td><td><?=
       $entry['date_updated'];
+      ?></td><td><?=
+      $entry['user_level'];
       ?></td>
 
       <!-- <td>

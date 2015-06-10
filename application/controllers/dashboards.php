@@ -12,21 +12,49 @@ class dashboards extends CI_Controller {
 		if(null ===($this->session->userdata('loggedin'))){
 			$this->session->set_userdata('loggedin',0);
 		}
+		if(null ===($this->session->userdata('accessid'))){//may be unused
+			$this->session->set_userdata('accessid',0);
+		}
 		//redirect("/");
 		$this->load->view('index');
 	}
 
-	public function admin()
+	public function admin()//admin dashboard
 	{
-		$this->load->view('admin');
+		$this->load->model('dashboard');
+		$users=$this->dashboard->get_all_users();
+		$this->load->view('admin', array('users' => $users));
 	}
 
-	public function editprofile()
+	public function editprofile()//users edit own profile
 	{
-		$this->load->view('editprofile');
+		$this->load->model('dashboard');
+		$user=$this->dashboard->get_user($this->session->userdata('loggedin'));
+		$this->load->view('editprofile', array('user_info' => $user));
 	}
 
-	public function edituser()
+	public function edit_info(){//let user edit their info
+		$tempvar = $this->session->userdata('loggedin');
+		$this->load->model('dashboard');
+		$update=$this->dashboard->update_info($this->input->post(),$tempvar);
+		redirect("/");//temp
+	}
+
+	public function edit_pw(){//let user edit their passw
+		$tempvar = $this->session->userdata('loggedin');
+		$this->load->model('dashboard');
+		$update=$this->dashboard->update_pass($this->input->post(),$tempvar);
+		redirect("/");//temp
+	}
+	public function edit_desc(){//let user set a description
+		$tempvar = $this->session->userdata('loggedin');
+		$this->load->model('dashboard');
+		$update=$this->dashboard->update_desc($this->input->post(),$tempvar);
+		redirect("/");//temp
+	}
+
+
+	public function edituser()//admin edits others' profile
 	{
 		$this->load->view('edituser');
 	}
@@ -44,7 +72,7 @@ class dashboards extends CI_Controller {
 	}
 
 	public function register()
-	{
+	{	
 		$this->load->view('register');
 	}
 
@@ -72,7 +100,7 @@ class dashboards extends CI_Controller {
 		}
 		
 	}
-	public function showuser()
+	public function showuser()//Go to the wall
 	{
 		$id = 4; //temp debug setting
 		$this->load->model('dashboard');
@@ -124,4 +152,6 @@ class dashboards extends CI_Controller {
 			$this->session->set_flashdata('errors', 'Invalid Login Credentials');
 		redirect('login');
 	}
+
+	
 }
