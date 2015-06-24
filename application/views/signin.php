@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="register">Register<span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="/register">Register<span class="sr-only">(current)</span></a></li>
               <!-- <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li> -->
             </ul>
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container">
 
-      <form class="form-signin" action='gologin' method='post'>
+      <form class="form-signin" action='/gologin' method='post'>
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input name="mail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
-      <a href="register">Register?</a>
+      <a href="/register">Register?</a>
     </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

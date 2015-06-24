@@ -29,10 +29,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <li class="active"><a href="profile">Welcome <?= $this->session->userdata('loggedname'); ?></a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="maindash">Dashboard</a></li>
-            <li><a href="wall">Your Wall</a></li>
-            <li><a href="profile">Profile</a></li>
-            <li><a href="logout">Logout</a></li>
+            <li><a href="/maindash">Dashboard</a></li>
+            <li><a href="/wall">Your Wall</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
           <!-- <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">

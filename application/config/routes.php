@@ -5,17 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | -------------------------------------------------------------------------
 | URI ROUTING
 | -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
-| corresponding to the URL.
 |
 | Please see the user guide for complete details:
 |
@@ -60,3 +49,6 @@ $route['gologin'] = 'dashboards/validate_login';
 $route['logout'] = 'dashboards/signout';
 $route['wall'] = 'dashboards/showuser';
 $route['profile'] = 'dashboards/editprofile';
+$route['changepassword/(:num)'] = 'dashboards/edit_pw/$1';
+$route['updateinfo/(:num)'] = 'dashboards/edit_info/$1';
+$route['updatedesc/(:num)'] = 'dashboards/edit_desc/$1';

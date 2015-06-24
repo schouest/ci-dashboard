@@ -58,10 +58,16 @@ function delete_user(){
 }
 
 function update_info($userinfo,$id){//used for admin and user
-var_dump($userinfo);
+/*var_dump($userinfo);
 var_dump($id);
-die();
+die();*/
+return $this->db->query("UPDATE users SET email = ?, first_name = ?, last_name = ?, date_updated = ? 
+WHERE user_id = ?", array($userinfo['mail'], $userinfo['f_name'], $userinfo['l_name'], date("Y-m-d, H:i:s"), $id));
 
+
+/*$query = "UPDATE users SET email = ?, first_name = ?, last_name = ?, date_updated = ? WHERE user_id = ? VALUES (?,?,?,?)";
+$values = array($userinfo['mail'], $userinfo['f_name'], $userinfo['l_name'], date("Y-m-d, H:i:s");
+return $this->db->query($query, $values);*/
 }
 
 function update_pass($userinfo,$id){//used for admin and user
@@ -78,12 +84,13 @@ die();
 
 }
 
-/*function update_user($product_info){
-        $id = $product_info['idnumber'];
-        $query = "UPDATE products SET name=?, description=?, price=? WHERE id=$id";
-        $values = array($product_info['name'], $product_info['descr'], $product_info['price']); 
-        return $this->db->query($query, $values);
-     }*/
+function val_email(){
+
 }
 
+function val_update_info(){
+
+}
+
+}
 ?>

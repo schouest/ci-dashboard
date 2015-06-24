@@ -44,9 +44,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="login">Sign in <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="/login">Sign in <span class="sr-only">(current)</span></a></li>
 
-                            <li><a href="register">Register</a></li>
+                            <li><a href="/register">Register</a></li>
               <!-- <li><a href="../navbar-fixed-top/">Fixed top</a></li> -->
             </ul>
           </div><!--/.nav-collapse -->
@@ -64,13 +64,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
 <h3>Cheat Links</h3>
 <ul>
-	<li><a href="dashboards/register">register</a></li>
-	<li><a href="dashboards/signin">signin</a></li>
-	<li><a href="dashboards/admin">admin</a></li>
-	<li><a href="dashboards/maindash">maindash</a></li>
-	<li><a href="dashboards/showuser">showuser</a></li>
+	<li><a href="/register">register</a></li>
+	<li><a href="/login">signin</a></li>
+	<li><a href="/dashboards/admin">admin</a></li>
+	<li><a href="/maindash">maindash</a></li>
+	<li><a href="/wall">showuser</a></li>
 	<li><a href="dashboards/newuser">newuser</a></li>
-	<li><a href="dashboards/editprofile">editprofile</a></li>
+	<li><a href="/profile">editprofile</a></li>
 	<li><a href="dashboards/edituser">edituser</a></li>
 </ul>
 

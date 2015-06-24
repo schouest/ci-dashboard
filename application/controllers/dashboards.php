@@ -33,24 +33,21 @@ class dashboards extends CI_Controller {
 		$this->load->view('editprofile', array('user_info' => $user));
 	}
 
-	public function edit_info(){//let user edit their info
-		$tempvar = $this->session->userdata('loggedin');
+	public function edit_info($user_id){//let user edit their info
 		$this->load->model('dashboard');
-		$update=$this->dashboard->update_info($this->input->post(),$tempvar);
-		redirect("/");//temp
+		$update=$this->dashboard->update_info($this->input->post(),$user_id);
+		redirect("/");//temp, TODO:need to figure out redirect here
 	}
 
-	public function edit_pw(){//let user edit their passw
-		$tempvar = $this->session->userdata('loggedin');
+	public function edit_pw($user_id){//let user edit their passw
 		$this->load->model('dashboard');
-		$update=$this->dashboard->update_pass($this->input->post(),$tempvar);
-		redirect("/");//temp
+		$update=$this->dashboard->update_pass($this->input->post(),$user_id);
+		redirect("/");//temp, TODO:need to figure out redirect here
 	}
-	public function edit_desc(){//let user set a description
-		$tempvar = $this->session->userdata('loggedin');
+	public function edit_desc($user_id){//let user set a description
 		$this->load->model('dashboard');
-		$update=$this->dashboard->update_desc($this->input->post(),$tempvar);
-		redirect("/");//temp
+		$update=$this->dashboard->update_desc($this->input->post(),$user_id);
+		redirect("/");//temp, TODO:need to figure out redirect here
 	}
 
 

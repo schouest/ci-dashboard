@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container">
 
-      <form class="form-signin" method="post" action="signup">
+      <form class="form-signin" method="post" action="/signup">
         <h2 class="form-signin-heading">Please Register</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input name="mail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       </form>
-      <a href="login">Already signed up? Login here</a>
+      <a href="/login">Already signed up? Login here</a>
 
     </div>
 

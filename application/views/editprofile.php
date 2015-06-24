@@ -36,10 +36,10 @@ textarea{
               <li class="active"><a href="profile">Welcome <?= $this->session->userdata('loggedname'); ?></a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="maindash">Dashboard</a></li>
-            <li><a href="wall">Your Wall</a></li>
-            <li><a href="profile">Profile</a></li>
-            <li><a href="logout">Logout</a></li>
+            <li><a href="/maindash">Dashboard</a></li>
+            <li><a href="/wall">Your Wall</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
           <!-- <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -50,19 +50,19 @@ textarea{
 
 <div class="container">
 
-      <form class="form-signin" method='post' action='dashboards/edit_info'>
+      <form class="form-signin" method='post' action='/updateinfo/<?= $this->session->userdata('loggedin'); ?>'>
         <h2 style='margin-top: 80px' class="form-signin-heading">Update User Info</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input name='mail' type="email" id="inputEmail" class="form-control" value="<?= $user_info['email']?>" required>
         <label for="inputfname" class="sr-only">First Name</label>
-        <input name='f_name' type="txt" id="inputfname" class="form-control" value="<?= $user_info['first_name']?>" required>
+        <input name='f_name' type="text" id="inputfname" class="form-control" value="<?= $user_info['first_name']?>" required>
         <label for="inputlname" class="sr-only">First Name</label>
-        <input name='l_name' type="txt" id="inputlname" class="form-control" value="<?= $user_info['last_name']?>" required>
+        <input name='l_name' type="text" id="inputlname" class="form-control" value="<?= $user_info['last_name']?>" required>
   
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
       </form>
 
-      <form class="form-signin" method='post' action='dashboards/edit_pw'>
+      <form class="form-signin" method='post' action='/changepassword/<?= $this->session->userdata('loggedin'); ?>'>
         <h2 class="form-signin-heading">Change Your Password</h2>
         <label for="inputPassword" class="sr-only">Password</label>
         <input name='passcode' type="password" id="inputPassword" class="form-control" placeholder="Password" required>
@@ -72,9 +72,9 @@ textarea{
         <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
       </form>
 
-      <form class="form-signin" method="post" action='dashboards/edit_desc/5'>
+      <form class="form-signin" method="post" action='/updatedesc/<?= $this->session->userdata('loggedin'); ?>'>
         <h2 class="form-signin-heading">Set Description</h2>
-        <textarea name='txt' rows='7' class='form-control'><?= $user_info['description']?></textarea>
+        <textarea name='text' rows='7' class='form-control'><?= $user_info['description']?></textarea>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
       </form>
 
